@@ -1,13 +1,27 @@
 [versions]
-agp = "8.8.2"
-kotlin = "2.0.0"
-coreKtx = "1.17.0"
+agp = "8.8.0"
+kotlin = "2.2.10"
+coreKtx = "1.15.0"
 junit = "4.13.2"
-junitVersion = "1.3.0"
-espressoCore = "3.7.0"
-lifecycleRuntimeKtx = "2.9.4"
-activityCompose = "1.11.0"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+lifecycleRuntimeKtx = "2.8.7"
+activityCompose = "1.10.0"
 composeBom = "2024.04.01"
+
+# Version de KSP
+kspVersion = "2.2.10-2.0.2"
+
+# Versiones de Dagger Hilt
+hiltAndroid = "2.56"
+hiltViewmodel = "1.3.0"
+
+# Version de la dependencia para tener un Navigation Compose
+navigationComposeAndroid = "2.9.5"
+
+# Version para serilziar JSON
+kolinxSerialization = "1.6.3"
+kotlinParcelize = "1.8.10"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -25,8 +39,27 @@ androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-man
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
 
+# Librerias de Hilt
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }
+hilt-android-compilador = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltAndroid" }
+hilt-viewmodel = { module = "androidx.hilt:hilt-lifecycle-viewmodel-compose", version.ref="hiltViewmodel"}
+
+# Libreria para descargar los archivos necesarios para Navigation Compsoe
+androidx-navigation-compose-android = { group = "androidx.navigation", name = "navigation-compose-android", version.ref = "navigationComposeAndroid" }
+
+# Libreria para utilizar el serialization o parcelizar de Kotlin Class a JSON
+kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref  = "kolinxSerialization" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+# Plugin KSP para tener herramientas de notacion
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "kspVersion" }
+
+# Plugins para usar Serialization
+jetbrainsKotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
+kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlinParcelize" }
+
 
